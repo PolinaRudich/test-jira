@@ -1,0 +1,13 @@
+/** @format */
+
+@media (max-width: 800px) {
+  .tasks-column {
+    flex-direction: column;
+  }
+  .tasks-list-container:not(:last-child) {
+    margin-bottom: 20px;
+  }
+  .tasks-list-container {
+    margin-right: 0;
+  }
+}

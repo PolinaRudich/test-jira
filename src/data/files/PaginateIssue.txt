@@ -1,0 +1,83 @@
+import React from 'react';
+const {BootstrapTable, TableHeaderColumn} = require('react-bootstrap-table')
+const _ = require('underscore');
+const sampleData = require('../../../data/sampleData.json')
+const PaginateIssue = React.createClass({
+
+    data: sampleData,
+    columns: [{"name": "v"}, {"name": "v1"}, {"name": "v2"}, {"name": "v3"}, {"name": "v4"}, {"name": "v5"}],
+
+    getInitialState(){
+        return {
+            doPaginate: true,
+            data:this,
+        };
+    },
+
+    generateData(){
+        var data =[];
+        for (var i = 1; i < 10000; ++i) {
+
+           return data.push({"v": i, v1:i+1})
+        }
+    },
+
+    changePagination(){
+        // this.state.doPaginate =  !this.state.doPaginate;
+        console.log(this.state.doPaginate);
+    },
+
+    numberSortFunc(a, b, order, sortField) {
+        const valueA = a[sortField] === null ? '' : Number(a[sortField]);
+        const valueB = b[sortField] === null ? '' : Number(b[sortField]);
+        if (order === 'desc') {
+            return valueA > valueB ? -1 : valueA < valueB ? 1 : 0;
+        }
+        else {
+            return valueA < valueB ? -1 : valueA > valueB ? 1 : 0;
+        }
+    },
+    isNumberSort(dataType){
+        if (dataType === "Number") {
+            return this.numberSortFunc;
+        }
+        return null;
+    },
+    isDataFilter(column){
+
+        return {type: "NumberFilter", delay: 1000};
+    },
+    printData(){
+        this.setState({doPaginate: !this.state.doPaginate});
+    },
+
+    render() {
+        const cellEditProp = {
+            mode: 'click',
+            blurToSave: true,
+        };
+        const self = this;
+        return (
+            <div className="data-table">
+                <BootstrapTable ref='table' data={self.data} striped={true} bordered={true} hover={true}
+                                pagination={this.state.doPaginate}
+                                selectRow={{}}
+                                cellEdit={cellEditProp} keyField='v'>
+                    {
+                        self.columns.map(column =>
+                            <TableHeaderColumn ref={column.name}
+                                               dataField={column.name} dataSort={true} width={column.width}
+                                               sortFunc={this.isNumberSort(column.dataType)}
+                                               editable={true} key={column.name}
+                                               filter={this.isDataFilter(column)}
+                            >
+                                value column
+                            </TableHeaderColumn>)
+                    }
+                </BootstrapTable>
+                <input name="Button" value="Print Data" type="button" onMouseEnter={this.printData}/>
+            </div>
+        );
+    }
+});
+export default PaginateIssue;

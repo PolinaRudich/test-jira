@@ -1,0 +1,50 @@
+.toggle {
+    display: flex;
+    width: 51px;
+    height: 30px;
+    background: grey;
+    box-shadow: 2px 4px 8px black 15%;
+    border-radius: 15px;
+    border: none;
+    overflow: hidden;
+    margin-left: 30px;
+    right: 100px;
+    top: 10px;
+    svg {
+        margin: 0 5px;
+    }
+
+    .circle {
+        width: 15px;
+        height: 16px;
+        border-radius: 50%;
+        border: #ffffff;
+        background: #ffffff;
+        transition: all 0.5s ease;
+    }
+
+    .dark-theme {
+        margin-left: 0px;
+        .circle {
+            background: black;
+        }
+    }
+}
+
+.toggle-container {
+    display: flex;
+    align-items: center;
+    margin-left: -30px;
+    cursor: pointer;
+    transition: margin-left 0.3s ease-out;
+
+    .toggle-color {
+        path {
+            stroke: white;
+        }
+
+        .toggle-fill-color {
+            fill: white;
+        }
+    }
+}

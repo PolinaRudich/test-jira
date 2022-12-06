@@ -1,0 +1,86 @@
+/** @format */
+
+.task-card {
+    margin-top: 15px;
+}
+.q {
+    background-color: rgba(132, 80, 80, 0.225) !important;
+    padding: 15px;
+    transition: background-color 1s ease-in-out;
+    border-radius: 8px;
+}
+.dev {
+    background-color: rgba(126, 108, 77, 0.225) !important;
+    padding: 15px;
+    transition: background-color 1s ease-in-out;
+    border-radius: 8px;
+}
+.done-status {
+    background-color: rgba(67, 113, 66, 0.225) !important;
+    padding: 15px;
+    transition: background-color 1s ease-in-out;
+    border-radius: 8px;
+}
+.title-card {
+    font-size: 20px;
+    margin-top: 0;
+    font-family: "JosefinSans";
+}
+.edit-task {
+    background: transparent;
+    border: 1px solid grey;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 8px;
+    font-family: "JosefinSans";
+    cursor: pointer;
+}
+.unfiltered {
+    position: absolute;
+    margin-top: -99999px;
+    transition: margin-top 1s ease-in-out;
+}
+.filtered{
+    transition: margin-top 1s ease-in-out;
+}
+.title-card {
+    justify-content: space-between;
+}
+.tasks-list-container {
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    background: #f3f3f3;
+    min-width: 341px;
+    border-radius: 5px;
+    padding: 15px 15px;
+    margin-right: 45px;
+}
+.tasks-column {
+    margin: 8px;
+    display: flex;
+    width: 100%;
+    min-height: 80vh;
+}
+.task-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 106px;
+    border-radius: 5px;
+    max-width: 311px;
+    margin: 15px 0 15px;
+
+    .secondary-details {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        font-size: 12px;
+        font-weight: 400px;
+        color: #7d7d7d;
+    }
+}
